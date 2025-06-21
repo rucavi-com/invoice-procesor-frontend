@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import Compare from "../components/Compare";
+import SidebarMenu from "../components/SidebarMenu";
 
 export default async function ComparePage() {
   const dir = path.join(process.cwd(), "public");
@@ -8,8 +9,21 @@ export default async function ComparePage() {
   const pdfFiles = files.filter((file) => file.endsWith(".pdf"));
 
   return (
-    <div className="w-dvw h-dvh bg-[linear-gradient(to_bottom,_#fcd34d_0%,_#000000_10%,_#000000_100%)]">
-      <Compare bills={pdfFiles} />
-    </div>
+    <>
+      <div className="w-dvw h-dvh bg-[#e5e7eb]">
+        <div className="flex justify-between py-2 px-[2vw] items-center">
+          <div className="flex items-center gap-5">
+            <SidebarMenu></SidebarMenu>
+            <h1 className="text-2xl font-semibold text-gray-900">
+              Corrección de facturas
+            </h1>
+          </div>
+          <p className="text-sm text-gray-600">
+            Hay {pdfFiles.length} facturas pendientes
+          </p>
+        </div>
+        <Compare bills={pdfFiles} />
+      </div>
+    </>
   );
 }
