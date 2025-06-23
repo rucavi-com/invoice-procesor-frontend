@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid";
+import { formatDistanceToNowStrict, parseISO } from "date-fns";
+import { es } from "date-fns/locale";
 
-export default function SidebarMenu() {
+export default function SidebarMenu({ files }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -28,6 +30,33 @@ export default function SidebarMenu() {
             <XMarkIcon className="h-6 w-6 text-gray-700" />
           </button>
         </div>
+        <ul>
+          {/* {files.map((file) => {
+            const createdAt = file.timestamp;
+            const tiempo = formatDistanceToNowStrict(createdAt, {
+              unit: "hour",
+              locale: es,
+              roundingMethod: "floor",
+            });
+
+            return (
+              <li
+                key={file}
+                className="p-4 rounded-md border border-gray-200 shadow hover:bg-gray-50 cursor-pointer"
+              >
+                <h3 className="font-semibold text-gray-800 text-sm">
+                  {file.order_id}
+                </h3>
+                <p className="text-xs text-gray-500">
+                  Fecha: {createdAt.toLocaleDateString("es-AR")}
+                </p>
+                <p className="text-xs text-gray-500">
+                  Sin procesar hace: {tiempo}
+                </p>
+              </li>
+            );
+          })} */}
+        </ul>
       </div>
     </>
   );

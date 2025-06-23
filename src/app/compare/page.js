@@ -13,7 +13,7 @@ export default async function ComparePage() {
       <div className="w-dvw h-dvh bg-[#e5e7eb]">
         <div className="flex justify-between py-2 px-[2vw] items-center">
           <div className="flex items-center gap-5">
-            <SidebarMenu></SidebarMenu>
+            <SidebarMenu files={pdfFiles}></SidebarMenu>
             <h1 className="text-2xl font-semibold text-gray-900">
               Corrección de facturas
             </h1>
